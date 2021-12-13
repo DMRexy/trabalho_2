@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#define NAMESIZE 15 
 struct data{
     char name[15];
     int mind; 

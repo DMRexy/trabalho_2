@@ -4,21 +4,33 @@
 #include "tree_Search.h"
 #include <time.h>
 
+
 Data character_generation(char *name, int size);
 
 
 int main()
 {
-    char name[15] = "bob"; 
-    Data bob = character_generation(name, 15); 
+    srand(time(NULL));
+    int count = 0;
+    FILE* nlst;
+    nlst = fopen("namelist.txt", "r"); 
+    char name[NAMESIZE]; 
+    while(!feof(nlst)){
+        fgets(name, NAMESIZE, nlst); 
+        name[strcspn(name, "\n ")] = 0;
+        Data newchar = character_generation(name, NAMESIZE); 
+        count++; 
+        printf("%s \n Body: %d \n Mind: %d \n Level: %d \n", newchar.name,newchar.body,newchar.mind,newchar.level);  
+    }
     
-    printf("%s | %d | %d | %d",bob.name,bob.mind,bob.body,bob.level); 
+    printf("numero de nomes: %d ", count);
 
+    fclose(nlst);     
     return 0;
 }
 
 Data character_generation(char *name, int size){
-    srand(time(NULL)); 
+     
 
     Data new_character; 
     strcpy(new_character.name, name);
