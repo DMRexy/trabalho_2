@@ -11,3 +11,9 @@ struct data{
 
 typedef struct data Data; 
 typedef struct node Node;
+typedef Node* Root; 
+
+
+Root* create_tree();
+
+int compare_alphabetically(char *name1, char *name2); 

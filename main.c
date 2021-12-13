@@ -14,17 +14,21 @@ int main()
     int count = 0;
     FILE* nlst;
     nlst = fopen("namelist.txt", "r"); 
+    
     char name[NAMESIZE]; 
     while(!feof(nlst)){
         fgets(name, NAMESIZE, nlst); 
         name[strcspn(name, "\n ")] = 0;
         Data newchar = character_generation(name, NAMESIZE); 
         count++; 
-        printf("%s \n Body: %d \n Mind: %d \n Level: %d \n", newchar.name,newchar.body,newchar.mind,newchar.level);  
+        //printf("%s \n Body: %d \n Mind: %d \n Level: %d \n", newchar.name,newchar.body,newchar.mind,newchar.level);  
     }
     
     printf("numero de nomes: %d ", count);
 
+   
+   
+   
     fclose(nlst);     
     return 0;
 }
