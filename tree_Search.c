@@ -78,7 +78,8 @@ int addto_tree(Root* root, Data data){
 }
 
 int search_character(Root* root,Data *character ,char* name)
-{ 
+{ //utiliza compare_alphabetically para checar se um nome está a direita ou a esquerda e posiciona um nó verificador aux
+//adequadamente. 
     Node *aux = *root;
     while(compare_alphabetically(name, aux->info.name) != 0)
     {
@@ -91,11 +92,11 @@ int search_character(Root* root,Data *character ,char* name)
         }
 
         if(aux == NULL)
-        {
+        {//não encontrado
             return 0; 
         }
     }
-
+    
     *character = aux->info; 
     return 1; 
 
@@ -134,16 +135,53 @@ void destroy_tree(Root* root)
     free(root);
 }
 
-void travel_tree(Root* node)
+void show_all(Root* node)//função recursiva de busca em profundidade. imprime todos os personagens
 {
+    if(node == NULL){
+        return;//ao chegar ao fundo da arvore, começa o retorno. 
+    }
+
+    if(*node != NULL)
+    {
+    show_all(&((*node)->left));//invoca a si mesma apontando para o nó a esquerda. isso se repete até começarem a retornar.
+    show_all(&((*node)->right));//as informações não vão ser mostradas até que todos os nós abaixo sejam explorados. 
+    printf("\n| %s | \n",(*node)->info.name);
+    printf("Level: %d \n",(*node)->info.level);
+    printf("Body: %d \n",(*node)->info.body);
+    printf("Mind: %d \n",(*node)->info.mind);
+
+    } 
+}
+
+void battle_royale(Root* node, Data* survivor) 
+{//usa o mesmo sistema de recursão para testar o personagem Survivor contra todos os outros. caso ele perca, o vencedor se torna
+//o novo Survivor. 
+//recebe o mesmo por endereço, para alterá-lo fora da recursão. 
     if(node == NULL){
         return;
     }
 
     if(*node != NULL)
     {
-    travel_tree(&((*node)->left));
-    travel_tree(&((*node)->right));
-    printf("%s \n",(*node)->info.name);
+    battle_royale(&((*node)->left), survivor);
+    battle_royale(&((*node)->right), survivor);
+    combat(&(*node)->info, survivor); //eu me embaralhei muito com esses ponteiros!
     } 
+}
+
+void combat(Data* challenger, Data* survivor)
+{//atribui pontuação baseada nos atributos e uma pequena contribuição aleatória 
+    int score_challenger = 0; 
+    int score_survivor = 0; 
+
+    score_survivor = survivor->level + survivor->mind + survivor->body + rand()%20;
+    score_challenger = challenger->level + challenger->mind + challenger->body + rand()%20;
+   
+    
+   
+    if(score_survivor < score_challenger || survivor->level == 0)
+    {
+        *survivor = *challenger;             
+    }
+
 }

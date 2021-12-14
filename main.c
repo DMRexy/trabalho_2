@@ -7,7 +7,6 @@
 
 Data character_generation(char *name, int size);
 
-
 int main()
 {
     srand(time(NULL));
@@ -25,14 +24,20 @@ int main()
         Data newchar = character_generation(name, NAMESIZE);
         addto_tree(character_list,newchar);
     }
-      
-    travel_tree(character_list); 
-   
+
+
+    Data survivor; 
+    survivor.level = 0; 
+    show_all(character_list); 
+    battle_royale(character_list, &survivor); 
+
+    printf("%s", survivor.name);
     fclose(nlst);     
     destroy_tree(character_list);
 
     return 0;
 }
+ 
 
 Data character_generation(char *name, int size){
      

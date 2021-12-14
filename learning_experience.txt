@@ -4,3 +4,8 @@ pointers instead of the whole string. It fits well to a binary tree.
 Search in binary trees is very interesting. I'm impressed by how powerful it is for searching
 specific values. searching all, which requires in this case a depth-first search, seems a bit
 weird. lots of backtracking.
+
+I'm having a lot of trouble with pointers to pointers as parameters for functions inside recursion. I'll have to
+try that out later with more time. 
+
+passing pointers by adress can be finnicky! it's not needed to repeat the & every time for recursion, I keep messing that up. 

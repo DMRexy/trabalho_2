@@ -9,6 +9,7 @@ struct data{
     int level; 
 }; 
 
+ 
 typedef struct data Data; 
 typedef struct node Node;
 typedef Node* Root; 
@@ -26,6 +27,8 @@ void destroy_tree(Root* root);
 
 void free_node(Node* node); 
 
-int search_all(Root* root, int value, int arg, Data* character);
+void show_all(Root* root); 
 
-void travel_tree(Root* root); 
+void battle_royale(Root* node,Data* survivor);
+
+void combat(Data* challenger, Data* survivor);
