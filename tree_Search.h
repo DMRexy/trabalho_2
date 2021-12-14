@@ -29,6 +29,6 @@ void free_node(Node* node);
 
 void show_all(Root* root); 
 
-void battle_royale(Root* node,Data* survivor);
+void tournament(Root* node,Data* survivor);
 
 void combat(Data* challenger, Data* survivor);

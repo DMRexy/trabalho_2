@@ -153,7 +153,7 @@ void show_all(Root* node)//função recursiva de busca em profundidade. imprime 
     } 
 }
 
-void battle_royale(Root* node, Data* survivor) 
+void tournament(Root* node, Data* survivor) 
 {//usa o mesmo sistema de recursão para testar o personagem Survivor contra todos os outros. caso ele perca, o vencedor se torna
 //o novo Survivor. 
 //recebe o mesmo por endereço, para alterá-lo fora da recursão. 
@@ -163,8 +163,8 @@ void battle_royale(Root* node, Data* survivor)
 
     if(*node != NULL)
     {
-    battle_royale(&((*node)->left), survivor);
-    battle_royale(&((*node)->right), survivor);
+    tournament(&((*node)->left), survivor);
+    tournament(&((*node)->right), survivor);
     combat(&(*node)->info, survivor); //eu me embaralhei muito com esses ponteiros!
     } 
 }
