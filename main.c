@@ -12,17 +12,17 @@ int main()
     srand(time(NULL));
 
     FILE* nlst;
-    nlst = fopen("namelist.txt", "r"); 
+    nlst = fopen("namelist.txt", "r"); //arquivo contem nomes de entrada
     Root*  character_list = create_tree();
 
     char name[NAMESIZE]; 
 
       int check; 
-    while(!feof(nlst)){
-        fgets(name, NAMESIZE, nlst); 
+    while(!feof(nlst)){//busca cada nome no arquivo e cria
+        fgets(name, NAMESIZE, nlst); //um personagem. em seguida
         name[strcspn(name, "\n ")] = 0;
         Data newchar = character_generation(name, NAMESIZE);
-        addto_tree(character_list,newchar);
+        addto_tree(character_list,newchar);//adiciona a arvore. 
     }
 
 
@@ -31,7 +31,7 @@ int main()
     show_all(character_list); 
     battle_royale(character_list, &survivor); 
 
-    printf("%s", survivor.name);
+    printf("\nSurvivor is:\n | %s |\n Level: %d\n Body: %d \n Mind: %d\n", survivor.name,survivor.level,survivor.body,survivor.mind);
     fclose(nlst);     
     destroy_tree(character_list);
 
@@ -40,7 +40,7 @@ int main()
  
 
 Data character_generation(char *name, int size){
-     
+//cria um personagem a partir do nome     
 
     Data new_character; 
     strcpy(new_character.name, name);
