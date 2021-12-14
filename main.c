@@ -11,14 +11,6 @@ Data character_generation(char *name, int size);
 int main()
 {
     srand(time(NULL));
-    
-    int return_count[4]; 
-
-    for (size_t i = 0; i < 4; i++)
-    {
-        return_count[i] = 0;
-     }
-    
 
     FILE* nlst;
     nlst = fopen("namelist.txt", "r"); 
@@ -33,22 +25,12 @@ int main()
         Data newchar = character_generation(name, NAMESIZE);
         addto_tree(character_list,newchar);
     }
-    
-    for (size_t i = 0; i < 4; i++)
-    {
-        printf("return %d: %d times\n",i, return_count[i]); 
-    }
-    Data getcharacter; 
-    char chaname[NAMESIZE] = "Daman"; 
-    check = search_character(character_list, &getcharacter, chaname);
-    printf("check:%d \n %s\n %d | %d | %d \n",check,getcharacter.name, getcharacter.level,getcharacter.mind,getcharacter.body);  
+      
    
    
     fclose(nlst);     
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    free(character_list);//REMOVA ISSO O MAIS RAPIDO POSSIVEL!! NÃO SE LIBERA ARVORE ASSIM! APENAS PARA TESTE!!!!!!
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    destroy_tree(character_list);
+    
     return 0;
 }
 
