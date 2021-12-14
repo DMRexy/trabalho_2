@@ -44,7 +44,7 @@ int addto_tree(Root* root, Data data){
     while(current != NULL)
     {
      
-        if (compare_alphabetically(new_node->info.name, current->info.name) > 0)
+        if (compare_alphabetically(new_node->info.name, current->info.name) == 0)
         {//mostra que nome jã existe. nome repetido
         //é descartado
             free(new_node); 
