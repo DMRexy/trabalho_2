@@ -56,21 +56,24 @@ int addto_tree(Root* root, Data data){
          //vem antes ou depois do nó atual.   
             previous = current;                                           
             current = current->right; 
+            printf("moved to right\n");
         }else{
             previous = current;
             current = current->left; 
-        }
+            printf("moved to left\n");
+        } 
 
-        if (compare_alphabetically(new_node->info.name, current->info.name) > 0)
+    }
+
+    if (compare_alphabetically(new_node->info.name, previous->info.name) > 0)
         {
             previous->right = new_node; 
         }else
         {
             previous->left = new_node; 
         }
-        return 1; 
-
-    }
+    
+    return 1;
         
 }
 

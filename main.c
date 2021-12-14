@@ -19,7 +19,7 @@ int main()
     char name[NAMESIZE]; 
 
     addto_tree(character_list, character_generation("bob", NAMESIZE)); 
-    int check = addto_tree(character_list, character_generation("bob", NAMESIZE));
+    int check = addto_tree(character_list, character_generation("tob", NAMESIZE));
      printf("%d", check);       
    /* while(!feof(nlst)){
         fgets(name, NAMESIZE, nlst); 
