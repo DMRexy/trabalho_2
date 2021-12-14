@@ -26,11 +26,11 @@ int main()
         addto_tree(character_list,newchar);
     }
       
-   
+    travel_tree(character_list); 
    
     fclose(nlst);     
     destroy_tree(character_list);
-    
+
     return 0;
 }
 

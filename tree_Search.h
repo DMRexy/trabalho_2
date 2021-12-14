@@ -25,3 +25,7 @@ int search_character(Root* root,Data *character ,char* name);
 void destroy_tree(Root* root);
 
 void free_node(Node* node); 
+
+int search_all(Root* root, int value, int arg, Data* character);
+
+void travel_tree(Root* root); 

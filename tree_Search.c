@@ -133,3 +133,17 @@ void destroy_tree(Root* root)
     free_node(*root);
     free(root);
 }
+
+void travel_tree(Root* node)
+{
+    if(node == NULL){
+        return;
+    }
+
+    if(*node != NULL)
+    {
+    travel_tree(&((*node)->left));
+    travel_tree(&((*node)->right));
+    printf("%s \n",(*node)->info.name);
+    } 
+}
