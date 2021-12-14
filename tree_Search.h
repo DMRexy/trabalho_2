@@ -17,3 +17,5 @@ typedef Node* Root;
 Root* create_tree();
 
 int compare_alphabetically(char *name1, char *name2); 
+
+int addto_tree(Root* tree, Data data);
