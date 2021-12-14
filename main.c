@@ -11,25 +11,35 @@ Data character_generation(char *name, int size);
 int main()
 {
     srand(time(NULL));
-    int count = 0;
+    
+    int return_count[4]; 
+
+    for (size_t i = 0; i < 4; i++)
+    {
+        return_count[i] = 0;
+     }
+    
+
     FILE* nlst;
     nlst = fopen("namelist.txt", "r"); 
     Root*  character_list = create_tree();
 
     char name[NAMESIZE]; 
 
-    addto_tree(character_list, character_generation("bob", NAMESIZE)); 
-    int check = addto_tree(character_list, character_generation("tob", NAMESIZE));
-     printf("%d", check);       
-   /* while(!feof(nlst)){
+      int check; 
+    while(!feof(nlst)){
         fgets(name, NAMESIZE, nlst); 
         name[strcspn(name, "\n ")] = 0;
         Data newchar = character_generation(name, NAMESIZE);
-       printf("code:||%d||",addto_tree(character_list,newchar));    
+       check = addto_tree(character_list,newchar);
+       return_count[check]++;     
     }
     
-    printf("numero de nomes: %d ", count);
-    */
+    for (size_t i = 0; i < 4; i++)
+    {
+        printf("return %d: %d times\n",i, return_count[i]); 
+    }
+    
    
    
    

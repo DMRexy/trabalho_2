@@ -21,12 +21,12 @@ Root* create_tree(){
 
 int addto_tree(Root* root, Data data){
     if(root == NULL){
-       return -1; 
+       return 0; 
     }
 
     Node *new_node = malloc(sizeof(Node)); //cria e aloca novo nó
     if(new_node == NULL){ //verifica se é valido
-        return -1;
+        return 0;
     }
     
     new_node->info = data;   //atribui os valores do novo nó. note que ele é necessariamente uma folha. 
@@ -48,7 +48,7 @@ int addto_tree(Root* root, Data data){
         {//mostra que nome jã existe. nome repetido
         //é descartado
             free(new_node); 
-            return -2;// -2 nome descartado
+            return 2;// -2 nome descartado
         }
         
         if (compare_alphabetically(new_node->info.name, current->info.name) > 0)
@@ -56,11 +56,11 @@ int addto_tree(Root* root, Data data){
          //vem antes ou depois do nó atual.   
             previous = current;                                           
             current = current->right; 
-            printf("moved to right\n");
+            
         }else{
             previous = current;
             current = current->left; 
-            printf("moved to left\n");
+           
         } 
 
     }
@@ -73,7 +73,7 @@ int addto_tree(Root* root, Data data){
             previous->left = new_node; 
         }
     
-    return 1;
+    return 3;
         
 }
 
