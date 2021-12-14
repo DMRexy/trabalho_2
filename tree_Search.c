@@ -111,3 +111,25 @@ int compare_alphabetically(char *name1, char *name2){//para comparar dois numero
                                             //para checar qual é menor que o outro.  
     return (*name2 - *name1);               //se o retorno for < 0 quer dizer que name1 vem antes de name2. 
 }                                           
+
+void free_node(Node* node)
+{
+    if(node == NULL){
+        return;
+    }
+
+    free_node(node->left);
+    free_node(node->right);
+    free(node); 
+    node=NULL;
+}
+
+void destroy_tree(Root* root)
+{
+    if(root == NULL){
+        return; 
+    }
+
+    free_node(*root);
+    free(root);
+}

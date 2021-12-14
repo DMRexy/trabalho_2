@@ -21,3 +21,7 @@ int compare_alphabetically(char *name1, char *name2);
 int addto_tree(Root* root, Data data);
 
 int search_character(Root* root,Data *character ,char* name);
+
+void destroy_tree(Root* root);
+
+void free_node(Node* node); 
