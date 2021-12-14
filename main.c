@@ -14,22 +14,30 @@ int main()
     int count = 0;
     FILE* nlst;
     nlst = fopen("namelist.txt", "r"); 
-    
+    Root*  character_list = create_tree();
+
     char name[NAMESIZE]; 
-    while(!feof(nlst)){
+
+   /* addto_tree(character_list, character_generation("bob", NAMESIZE)); 
+    addto_tree(character_list, character_generation("tom", NAMESIZE));
+    */       
+   /* while(!feof(nlst)){
         fgets(name, NAMESIZE, nlst); 
         name[strcspn(name, "\n ")] = 0;
-        Data newchar = character_generation(name, NAMESIZE); 
-        count++; 
-        printf("%s \n Body: %d \n Mind: %d \n Level: %d \n", newchar.name,newchar.body,newchar.mind,newchar.level);  
+        Data newchar = character_generation(name, NAMESIZE);
+       printf("code:||%d||",addto_tree(character_list,newchar));    
     }
     
     printf("numero de nomes: %d ", count);
-
+    */
    
    
    
     fclose(nlst);     
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    free(character_list);//REMOVA ISSO O MAIS RAPIDO POSSIVEL!! NÃO SE LIBERA ARVORE ASSIM! APENAS PARA TESTE!!!!!!
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     return 0;
 }
 

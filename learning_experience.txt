@@ -1,0 +1,6 @@
+comparing strings for alphabetical order. Found a really elegant solution that works with
+pointers instead of the whole string. It fits well to a binary tree. 
+
+Search in binary trees is very interesting. I'm impressed by how powerful it is for searching
+specific values. searching all, which requires in this case a depth-first search, seems a bit
+weird. lots of backtracking.
