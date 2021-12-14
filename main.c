@@ -19,8 +19,8 @@ int main()
     char name[NAMESIZE]; 
 
     addto_tree(character_list, character_generation("bob", NAMESIZE)); 
-    addto_tree(character_list, character_generation("tom", NAMESIZE));
-           
+    int check = addto_tree(character_list, character_generation("bob", NAMESIZE));
+     printf("%d", check);       
    /* while(!feof(nlst)){
         fgets(name, NAMESIZE, nlst); 
         name[strcspn(name, "\n ")] = 0;
