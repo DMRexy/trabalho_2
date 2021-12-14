@@ -77,6 +77,29 @@ int addto_tree(Root* root, Data data){
         
 }
 
+int search_character(Root* root,Data *character ,char* name)
+{ 
+    Node *aux = *root;
+    while(compare_alphabetically(name, aux->info.name) != 0)
+    {
+        if(compare_alphabetically(name, aux->info.name) > 0)
+        {
+            aux = aux->right; 
+        }else
+        {
+            aux = aux->left; 
+        }
+
+        if(aux == NULL)
+        {
+            return 0; 
+        }
+    }
+
+    *character = aux->info; 
+    return 1; 
+
+}
 
 int compare_alphabetically(char *name1, char *name2){//para comparar dois numeros alfabeticamente (n1 fica na posição que < aponta)
 

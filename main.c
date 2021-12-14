@@ -31,16 +31,17 @@ int main()
         fgets(name, NAMESIZE, nlst); 
         name[strcspn(name, "\n ")] = 0;
         Data newchar = character_generation(name, NAMESIZE);
-       check = addto_tree(character_list,newchar);
-       return_count[check]++;     
+        addto_tree(character_list,newchar);
     }
     
     for (size_t i = 0; i < 4; i++)
     {
         printf("return %d: %d times\n",i, return_count[i]); 
     }
-    
-   
+    Data getcharacter; 
+    char chaname[NAMESIZE] = "Daman"; 
+    check = search_character(character_list, &getcharacter, chaname);
+    printf("check:%d \n %s\n %d | %d | %d \n",check,getcharacter.name, getcharacter.level,getcharacter.mind,getcharacter.body);  
    
    
     fclose(nlst);     
